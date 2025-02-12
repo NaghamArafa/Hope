@@ -1,69 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:hope/core/providers/theme_provider.dart';
+import 'package:hope/core/theme/app_theme.dart';
+import 'package:hope/ui/screens/auth/login/login.dart';
+import 'package:hope/ui/screens/auth/register/register.dart';
+import 'package:hope/ui/screens/onBoarding_screens/on_boarding/onboarding_screen.dart';
+import 'package:hope/ui/screens/onBoarding_screens/set_up/setup_screen.dart';
+import 'package:hope/ui/screens/onBoarding_screens/splash/splash_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  late ThemeProvider themeProvider;
+
+  //late LocaleProvider localeProvider;
+
 
   @override
   Widget build(BuildContext context) {
+    themeProvider = Provider.of<ThemeProvider>(context);
+
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.home_filled),
-      ),
+      debugShowCheckedModeBanner: false,
+      routes: {
+        SplashScreen.routeName: (_) => SplashScreen(),
+        OnBoardingScreen.routeName: (_) => OnBoardingScreen(),
+        LoginScreen.routeName: (_) => LoginScreen(),
+        SetupScreen.routeName: (_) => SetupScreen(),
+        RegisterScreen.routeName: (_) => RegisterScreen(),
+      },
+      initialRoute: RegisterScreen.routeName,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: themeProvider.themeMode,
     );
   }
 }

@@ -13,6 +13,7 @@ class AppAssets {
 
   //Authentication
   static const String register = "assets/images/register.png";
+  static const String login = "assets/images/login.png";
 
   //Forget Password
   static const String forgetPassword = "assets/images/forgetPassword.png";
