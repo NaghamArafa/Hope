@@ -24,9 +24,9 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
     final phoneRegEx = RegExp(r"^\d{11}$");
 
     if (value.isEmpty) {
-      return 'Please enter your email or phone number';
+      return appLocalizations.enterEmailOrPhone;
     } else if (!emailRegEx.hasMatch(value) && !phoneRegEx.hasMatch(value)) {
-      return 'Invalid email or phone number';
+      return appLocalizations.invalidEmailOrPhoneNumber;
     }
     return null;
   }
@@ -52,7 +52,7 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
               style: Theme.of(context).textTheme.bodyLarge,
               cursorColor: Theme.of(context).primaryColor,
               decoration: InputDecoration(
-                hintText: "Enter your email or mobile phone",
+                hintText: appLocalizations.enterYourEmailOrMobile,
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide: BorderSide(color: Colors.red, width: 2),

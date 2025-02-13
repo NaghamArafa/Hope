@@ -43,5 +43,11 @@
   "newPass": "كلمة المرور الجديدة",
   "confirmNewPass": "تأكيد كلمة المرور الجديدة",
   "reset": "إعادة تعيين",
-  "done": "تم"
+  "done": "تم",
+  "pleaseFillOutBothFields": "يرجى ملء كلا الحقلين",
+  "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+  "yourPasswordHasBeenReset": "تم إعادة تعيين كلمة المرور الخاصة بك",
+  "enterYourEmailOrMobile": "أدخل بريدك الإلكتروني أو رقم هاتفك المحمول",
+  "invalidEmailOrPhoneNumber": "بريد إلكتروني أو رقم هاتف غير صالح",
+  "resetPassword": "إعادة تعيين كلمة المرور"
 }

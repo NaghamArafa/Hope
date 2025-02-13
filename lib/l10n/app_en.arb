@@ -20,7 +20,7 @@
   "dontHaveAccount": "Don't have an account?",
   "signup": "Sign Up",
   "register": "Register",
-  "username": "Userame",
+  "username": "Username",
   "phone": "Phone",
   "confirmPassword": "Confirm password",
   "female": "Female",
@@ -43,5 +43,11 @@
   "newPass": "New Password",
   "confirmNewPass": "Confirm New Password",
   "reset": "Reset",
-  "done": "Done"
+  "done": "Done",
+  "pleaseFillOutBothFields" : "Please fill out both fields",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "yourPasswordHasBeenReset": "Your password has been reset",
+  "enterYourEmailOrMobile" : "Enter your email or mobile phone",
+  "invalidEmailOrPhoneNumber": "Invalid email or phone number",
+  "resetPassword": "Reset password"
 }

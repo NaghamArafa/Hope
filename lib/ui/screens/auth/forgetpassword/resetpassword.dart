@@ -31,15 +31,15 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
     String confirmPassword = _confirmPasswordController.text;
 
     if (newPassword.isEmpty || confirmPassword.isEmpty) {
-      return 'Please fill out both fields';
+      return appLocalizations.pleaseFillOutBothFields;
     } else if (newPassword != confirmPassword) {
       setState(() {
-        _passwordMatchError = 'Passwords do not match';
+        _passwordMatchError = appLocalizations.passwordsDoNotMatch;
       });
       return null;
     }
     setState(() {
-      _passwordMatchError = null; // Clear error if passwords match
+      _passwordMatchError = null;
     });
     return null;
   }
@@ -48,12 +48,12 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
     if (_newPasswordController.text.isEmpty ||
         _confirmPasswordController.text.isEmpty) {
       setState(() {
-        _emptyFieldError = 'Please fill out both fields';
+        _emptyFieldError = appLocalizations.pleaseFillOutBothFields;
       });
       return null;
     }
     setState(() {
-      _emptyFieldError = null; // Clear error if fields are filled
+      _emptyFieldError = null;
     });
     return null;
   }
@@ -63,7 +63,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
     appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Re password"),
+        title: Text(appLocalizations.resetPassword),
       ),
       body: Form(
         key: _formKey,
@@ -75,7 +75,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
               height: MediaQuery.of(context).size.height * 0.4,
             ),
             Text(
-              "Please enter the new password",
+              appLocalizations.enterNewPass,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
@@ -90,7 +90,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
               obscureText: _obscureNewPassword,
               // Toggle password visibility
               decoration: InputDecoration(
-                hintText: "New Password",
+                hintText: appLocalizations.newPass,
                 suffixIcon: IconButton(
                   icon: Icon(
                     _obscureNewPassword
@@ -124,7 +124,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
               cursorColor: Theme.of(context).primaryColor,
               obscureText: _obscureConfirmPassword,
               decoration: InputDecoration(
-                hintText: "Confirm New Password",
+                hintText: appLocalizations.confirmNewPass,
                 suffixIcon: IconButton(
                   icon: Icon(
                     _obscureConfirmPassword
@@ -174,7 +174,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                   );
                 }
               },
-              child: Text("Reset"),
+              child: Text(appLocalizations.reset),
             ),
           ],
         ),
@@ -185,6 +185,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
 
 // Password reset dialog widget
 class PasswordResetDialog extends StatelessWidget {
+  late AppLocalizations appLocalizations;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -197,7 +198,7 @@ class PasswordResetDialog extends StatelessWidget {
             Icon(Icons.lock_outline, size: 60, color: Color(0xff8E56FF)),
             const SizedBox(height: 20),
             Text(
-              "Your password has been reset",
+              appLocalizations.yourPasswordHasBeenReset,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
@@ -210,7 +211,7 @@ class PasswordResetDialog extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, LoginScreen.routeName);
               },
-              child: Text("Done"),
+              child: Text(appLocalizations.done),
               style: FilledButton.styleFrom(
                 backgroundColor: Color(0xff8E56FF),
                 padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
