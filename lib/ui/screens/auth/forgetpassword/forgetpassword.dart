@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hope/core/assets/app_assets.dart';
@@ -20,7 +19,8 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
   final TextEditingController _inputController = TextEditingController();
 
   String? _validateInput(String value) {
-    final emailRegEx = RegExp(r"^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+    final emailRegEx =
+        RegExp(r"^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
     final phoneRegEx = RegExp(r"^\d{11}$");
 
     if (value.isEmpty) {
@@ -67,8 +67,8 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
-              borderSide: const BorderSide(color: AppColors.gray, width: 1),
-              ),
+                  borderSide: const BorderSide(color: AppColors.gray, width: 1),
+                ),
               ),
               validator: (value) {
                 return _validateInput(value!);

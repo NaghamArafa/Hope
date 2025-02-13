@@ -17,7 +17,8 @@ class _VerficationScreenState extends State<VerficationScreen> {
   late AppLocalizations appLocalizations;
 
   // Text controllers and focus nodes for each TextField
-  final List<TextEditingController> controllers = List.generate(4, (_) => TextEditingController());
+  final List<TextEditingController> controllers =
+      List.generate(4, (_) => TextEditingController());
   final List<FocusNode> focusNodes = List.generate(4, (_) => FocusNode());
 
   @override
@@ -25,7 +26,7 @@ class _VerficationScreenState extends State<VerficationScreen> {
     appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Verification"),
+        title: Text(appLocalizations.verification),
       ),
       body: Form(
         child: ListView(
@@ -36,7 +37,7 @@ class _VerficationScreenState extends State<VerficationScreen> {
               height: MediaQuery.of(context).size.height * 0.4,
             ),
             Text(
-              "Please enter the verification code",
+              appLocalizations.enterEmailOrPhone,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
@@ -54,7 +55,8 @@ class _VerficationScreenState extends State<VerficationScreen> {
                       onFieldSubmitted: (value) {
                         // Automatically move focus to the next field if not the last
                         if (index < 3 && value.isNotEmpty) {
-                          FocusScope.of(context).requestFocus(focusNodes[index + 1]);
+                          FocusScope.of(context)
+                              .requestFocus(focusNodes[index + 1]);
                         }
                       },
                     ),
@@ -68,14 +70,14 @@ class _VerficationScreenState extends State<VerficationScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Didn’t recieve the code?",
+                  appLocalizations.receiveCode,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, RegisterScreen.routeName);
                   },
-                  child: Text("Send Again"),
+                  child: Text(appLocalizations.sendAgain),
                 )
               ],
             ),
@@ -84,7 +86,7 @@ class _VerficationScreenState extends State<VerficationScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, ResetpasswordScreen.routeName);
               },
-              child: Text("Verify"),
+              child: Text(appLocalizations.verify),
             ),
           ],
         ),
@@ -130,7 +132,8 @@ class _CircleInputState extends State<CircleInput> {
       width: 60,
       height: 60,
       decoration: BoxDecoration(
-        color: isFilled ? Color(0xff8E56FF) : Color(0xffC9C9C9), // Color changes based on input
+        color: isFilled ? Color(0xff8E56FF) : Color(0xffC9C9C9),
+        // Color changes based on input
         shape: BoxShape.circle,
       ),
       child: Center(

@@ -8,7 +8,7 @@
 
 #include <flutter_localization/flutter_localization_plugin_c_api.h>
 
-void RegisterPlugins(flutter::PluginRegistry* registry) {
-  FlutterLocalizationPluginCApiRegisterWithRegistrar(
-      registry->GetRegistrarForPlugin("FlutterLocalizationPluginCApi"));
+void RegisterPlugins(flutter::PluginRegistry *registry) {
+    FlutterLocalizationPluginCApiRegisterWithRegistrar(
+            registry->GetRegistrarForPlugin("FlutterLocalizationPluginCApi"));
 }

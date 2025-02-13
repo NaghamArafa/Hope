@@ -17,7 +17,8 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _newPasswordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   bool _obscureNewPassword = true;
   bool _obscureConfirmPassword = true;
@@ -44,7 +45,8 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
   }
 
   String? _validateEmptyFields() {
-    if (_newPasswordController.text.isEmpty || _confirmPasswordController.text.isEmpty) {
+    if (_newPasswordController.text.isEmpty ||
+        _confirmPasswordController.text.isEmpty) {
       setState(() {
         _emptyFieldError = 'Please fill out both fields';
       });
@@ -85,12 +87,15 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
               controller: _newPasswordController,
               style: Theme.of(context).textTheme.bodyLarge,
               cursorColor: Theme.of(context).primaryColor,
-              obscureText: _obscureNewPassword, // Toggle password visibility
+              obscureText: _obscureNewPassword,
+              // Toggle password visibility
               decoration: InputDecoration(
                 hintText: "New Password",
                 suffixIcon: IconButton(
                   icon: Icon(
-                    _obscureNewPassword ? Icons.visibility_off : Icons.visibility,
+                    _obscureNewPassword
+                        ? Icons.visibility_off
+                        : Icons.visibility,
                     color: Colors.grey,
                   ),
                   onPressed: () {
@@ -107,7 +112,8 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                   borderSide: BorderSide(color: Colors.grey),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                errorText: _emptyFieldError, // Error message if empty
+                errorText: _emptyFieldError,
+                // Error message if empty
                 errorStyle: TextStyle(color: Colors.red),
               ),
             ),
@@ -121,7 +127,9 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                 hintText: "Confirm New Password",
                 suffixIcon: IconButton(
                   icon: Icon(
-                    _obscureConfirmPassword ? Icons.visibility_off : Icons.visibility,
+                    _obscureConfirmPassword
+                        ? Icons.visibility_off
+                        : Icons.visibility,
                     color: Colors.grey,
                   ),
                   onPressed: () {
@@ -132,13 +140,19 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: _passwordMatchError != null || _emptyFieldError != null ? Colors.red : Colors.grey,
+                    color:
+                        _passwordMatchError != null || _emptyFieldError != null
+                            ? Colors.red
+                            : Colors.grey,
                   ),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: _passwordMatchError != null || _emptyFieldError != null ? Colors.red : Colors.grey,
+                    color:
+                        _passwordMatchError != null || _emptyFieldError != null
+                            ? Colors.red
+                            : Colors.grey,
                   ),
                   borderRadius: BorderRadius.circular(16),
                 ),
