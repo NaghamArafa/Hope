@@ -31,5 +31,17 @@
   "typeOfCancer": "ما نوع السرطان؟",
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
   "loginNow": "تسجيل الدخول الآن",
-  "createAccount": "إنشاء حساب"
+  "createAccount": "إنشاء حساب",
+  "send": "ارسال",
+  "enterEmailOrPhone": "أدخل بريدك الإلكتروني أو رقم هاتفك المحمول",
+  "verification": "التحقق",
+  "verify": "تحقق",
+  "enterVerificationCode": "يرجى إدخال رمز التحقق",
+  "receiveCode": "لم تستلم الرمز؟",
+  "sendAgain": "أرسل مرة أخرى",
+  "enterNewPass": "يرجى إدخال كلمة المرور الجديدة",
+  "newPass": "كلمة المرور الجديدة",
+  "confirmNewPass": "تأكيد كلمة المرور الجديدة",
+  "reset": "إعادة تعيين",
+  "done": "تم",
 }
