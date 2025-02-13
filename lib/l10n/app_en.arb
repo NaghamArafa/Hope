@@ -31,5 +31,17 @@
   "typeOfCancer": "What type of cancer ?",
   "alreadyHaveAccount": "Already have an account?",
   "loginNow": "Login Now",
-  "createAccount": "Create account"
+  "createAccount": "Create account",
+  "send": "Send",
+  "enterEmailOrPhone": "Enter your email or mobile phone",
+  "verification": "Verification",
+  "verify": "Verify",
+  "enterVerificationCode": "Please enter the verification code",
+  "receiveCode": "Didn't receive code?",
+  "sendAgain": "Send Again",
+  "enterNewPass": "Please enter the new password",
+  "newPass": "New Password",
+  "confirmNewPass": "Confirm New Password",
+  "reset": "Reset",
+  "done": "Done"
 }
