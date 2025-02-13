@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hope/core/assets/app_assets.dart';
 import 'package:hope/core/assets/app_icons.dart';
-import 'package:hope/core/theme/app_colors.dart';
+import 'package:hope/ui/screens/auth/forgetpassword/forgetpassword.dart';
 import 'package:hope/ui/screens/auth/register/register.dart';
 import 'package:hope/ui/shared_widgets/custom_button.dart';
 import 'package:hope/ui/shared_widgets/language_switch.dart';
@@ -39,22 +39,34 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 16),
               buildPasswordTextField(context),
               const SizedBox(height: 16),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     GestureDetector(
+              //       onTap: () {},
+              //       child: Text(
+              //         textAlign: TextAlign.end,
+              //         appLocalizations.forgetPassword,
+              //         style: const TextStyle(
+              //           decoration: TextDecoration.underline,
+              //           color: AppColors.purple, // Color of the text
+              //           fontSize: 14, // Font size
+              //           fontWeight: FontWeight.bold, // Font weight
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      textAlign: TextAlign.end,
-                      appLocalizations.forgetPassword,
-                      style: const TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: AppColors.purple, // Color of the text
-                        fontSize: 14, // Font size
-                        fontWeight: FontWeight.bold, // Font weight
-                      ),
-                    ),
-                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, ForgetpasswordScreen.routeName);
+                    },
+                    child: Text(appLocalizations.forgetPassword),
+                  )
                 ],
               ),
               const SizedBox(height: 16),
