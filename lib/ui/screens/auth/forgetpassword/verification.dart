@@ -26,7 +26,7 @@ class _VerficationScreenState extends State<VerficationScreen> {
     appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Verification"),
+        title: Text(appLocalizations.verification),
       ),
       body: Form(
         child: ListView(
@@ -37,7 +37,7 @@ class _VerficationScreenState extends State<VerficationScreen> {
               height: MediaQuery.of(context).size.height * 0.4,
             ),
             Text(
-              "Please enter the verification code",
+              appLocalizations.enterEmailOrPhone,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
@@ -70,14 +70,14 @@ class _VerficationScreenState extends State<VerficationScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Didn’t recieve the code?",
+                  appLocalizations.receiveCode,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, RegisterScreen.routeName);
                   },
-                  child: Text("Send Again"),
+                  child: Text(appLocalizations.sendAgain),
                 )
               ],
             ),
@@ -86,7 +86,7 @@ class _VerficationScreenState extends State<VerficationScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, ResetpasswordScreen.routeName);
               },
-              child: Text("Verify"),
+              child: Text(appLocalizations.verify),
             ),
           ],
         ),
