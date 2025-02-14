@@ -36,7 +36,8 @@ class _RegisterScreen extends State<RegisterScreen> {
   bool smoke = false;
   bool hadCancer = false;
   bool familyCancer = false;
-
+  bool obscurePassword = true;
+  bool obscureReassword = true;
   //late UserProvider userProvider;
 
   @override
@@ -115,8 +116,18 @@ class _RegisterScreen extends State<RegisterScreen> {
             CustomLabel(
               controller: passwordController,
               hint: appLocalizations.password,
-              suffixIcon: const Icon(EvaIcons.eye),
               prefixIcon: const ImageIcon(AssetImage(AppIcons.passwordIcon)),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  obscurePassword ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    obscurePassword = !obscurePassword;
+                  });
+                },
+              ),
             ),
             const SizedBox(height: 16),
             CustomLabel(
