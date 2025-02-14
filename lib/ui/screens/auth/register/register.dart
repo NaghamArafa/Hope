@@ -4,6 +4,7 @@ import 'package:hope/core/assets/app_assets.dart';
 import 'package:hope/core/assets/app_icons.dart';
 import 'package:hope/core/providers/theme_provider.dart';
 import 'package:hope/core/theme/app_colors.dart';
+import 'package:hope/ui/screens/auth/login/login.dart';
 import 'package:hope/ui/shared_widgets/custom_check_field.dart';
 import 'package:hope/ui/shared_widgets/custom_drop_down.dart';
 import 'package:hope/ui/shared_widgets/custom_label.dart';
@@ -54,7 +55,7 @@ class _RegisterScreen extends State<RegisterScreen> {
           children: [
             Image.asset(
               AppAssets.register,
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.3,
             ),
             CustomLabel(
                 controller: nameController,
@@ -89,7 +90,7 @@ class _RegisterScreen extends State<RegisterScreen> {
                     child: Row(
                       children: [
                         ImageIcon(
-                          AssetImage(AppIcons.calenderIcon),
+                          const AssetImage(AppIcons.calenderIcon),
                           color: themeProvider.isDark()
                               ? AppColors.white
                               : AppColors.gray,
@@ -226,7 +227,7 @@ class _RegisterScreen extends State<RegisterScreen> {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushNamed(context, LoginScreen.routeName);
           },
           child: Text(appLocalizations.login),
         )

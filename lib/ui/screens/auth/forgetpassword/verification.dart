@@ -34,7 +34,8 @@ class _VerficationScreenState extends State<VerficationScreen> {
           children: [
             Image.asset(
               AppAssets.verification,
-              height: MediaQuery.of(context).size.height * 0.4,
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.35,
             ),
             Text(
               appLocalizations.enterEmailOrPhone,

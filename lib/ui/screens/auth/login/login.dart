@@ -29,34 +29,16 @@ class LoginScreen extends StatelessWidget {
         child: Form(
           key: formKey,
           child: ListView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             children: [
               Image.asset(
                 AppAssets.login,
-                height: MediaQuery.of(context).size.height * 0.25,
+                height: MediaQuery.of(context).size.height * 0.3,
               ),
               buildEmailTextField(context),
               const SizedBox(height: 16),
               buildPasswordTextField(context),
               const SizedBox(height: 16),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.end,
-              //   children: [
-              //     GestureDetector(
-              //       onTap: () {},
-              //       child: Text(
-              //         textAlign: TextAlign.end,
-              //         appLocalizations.forgetPassword,
-              //         style: const TextStyle(
-              //           decoration: TextDecoration.underline,
-              //           color: AppColors.purple, // Color of the text
-              //           fontSize: 14, // Font size
-              //           fontWeight: FontWeight.bold, // Font weight
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -73,7 +55,7 @@ class LoginScreen extends StatelessWidget {
               buildLoginButton(context),
               const SizedBox(height: 16),
               buildSignUpRow(context),
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
               buildORText(context),
               const SizedBox(height: 16),
               buildGoogleSignInButton(context),
@@ -193,7 +175,9 @@ class LoginScreen extends StatelessWidget {
             children: [
               Brand(Brands.google),
               const SizedBox(width: 8),
-              Text(appLocalizations.googleLogin),
+              Text(
+                appLocalizations.googleLogin,
+              ),
             ],
           )),
     );

@@ -76,7 +76,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
             ),
             Text(
               appLocalizations.enterNewPass,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),
@@ -105,16 +105,16 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                   },
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: Colors.grey),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+                  borderSide: const BorderSide(color: Colors.grey),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 errorText: _emptyFieldError,
                 // Error message if empty
-                errorStyle: TextStyle(color: Colors.red),
+                errorStyle: const TextStyle(color: Colors.red),
               ),
             ),
             const SizedBox(height: 16),
@@ -157,7 +157,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 errorText: _passwordMatchError ?? _emptyFieldError,
-                errorStyle: TextStyle(color: Colors.red),
+                errorStyle: const TextStyle(color: Colors.red),
               ),
             ),
             const SizedBox(height: 32),
@@ -195,11 +195,11 @@ class PasswordResetDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.lock_outline, size: 60, color: Color(0xff8E56FF)),
+            const Icon(Icons.lock_outline, size: 60, color: Color(0xff8E56FF)),
             const SizedBox(height: 20),
             Text(
               appLocalizations.yourPasswordHasBeenReset,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
                 color: Colors.black,
@@ -213,8 +213,9 @@ class PasswordResetDialog extends StatelessWidget {
               },
               child: Text(appLocalizations.done),
               style: FilledButton.styleFrom(
-                backgroundColor: Color(0xff8E56FF),
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                backgroundColor: const Color(0xff8E56FF),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),

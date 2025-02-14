@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         VerficationScreen.routeName: (_) => VerficationScreen(),
         ResetpasswordScreen.routeName: (_) => ResetpasswordScreen(),
       },
-      initialRoute: SplashScreen.routeName,
+      initialRoute: LoginScreen.routeName,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeProvider.themeMode,

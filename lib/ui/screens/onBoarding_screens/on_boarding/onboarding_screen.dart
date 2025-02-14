@@ -86,7 +86,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               child: Image.asset(
                 onboardingData[index]["image"]!,
                 fit: BoxFit.fill,
-                height: MediaQuery.of(context).size.height * 0.50,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.6,
               )),
           const SizedBox(height: 40),
           Row(
