@@ -67,7 +67,7 @@ class _RegisterScreen extends State<RegisterScreen> {
             CustomLabel(
               controller: emailController,
               hint: appLocalizations.email,
-              prefixIcon: const ImageIcon(AssetImage(AppIcons.emailIcon)),
+              prefixIcon: const ImageIcon(AssetImage(AppIcons.emailIcon) ,),
             ),
             const SizedBox(height: 16),
             CustomLabel(

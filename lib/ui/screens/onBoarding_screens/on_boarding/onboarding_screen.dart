@@ -34,7 +34,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         "description": appLocalizations.onBoardingDescription1
       },
       {
-        "image": AppAssets.addOnBoarding,
+        "image": AppAssets.addOnBoardingLight,
+        "darkImage" : AppAssets.addOnBoardingDark,
         "title": appLocalizations.onBoardingTitle2,
         "description": appLocalizations.onBoardingDescription2
       },
@@ -81,14 +82,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-              flex: 1,
-              child: Image.asset(
-                onboardingData[index]["image"]!,
+             Image.asset(
+               themeProvider.isDark()&& index==1 ?
+                onboardingData[index]["darkImage"]! :
+               onboardingData[index]["image"]!,
                 fit: BoxFit.fill,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.6,
-              )),
+                height: MediaQuery.of(context).size.height * 0.4,
+              ),
           const SizedBox(height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,

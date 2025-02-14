@@ -7,7 +7,8 @@ class AppAssets {
 
   //OnBoarding
   static const String scanOnBoarding = "assets/images/scanOnBoarding.png";
-  static const String addOnBoarding = "assets/images/addOnBoarding.png";
+  static const String addOnBoardingLight = "assets/images/addOnBoardingLight.png";
+  static const String addOnBoardingDark = "assets/images/addOnBoardingDark.png";
   static const String awareOnBoarding = "assets/images/awareOnBoarding.png";
   static const String chatbotOnBoarding = "assets/images/chatbotOnBoarding.png";
 

@@ -116,25 +116,27 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
+
   Widget buildLoginButton(BuildContext context) {
     return CustomButton(onClick: () {}, title: appLocalizations.login);
   }
 
   Widget buildSignUpRow(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          appLocalizations.dontHaveAccount,
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, RegisterScreen.routeName);
-          },
-          child: Text(appLocalizations.createAccount),
+    return  Container(
+        child:Row(
+          children: [
+            Text(
+              appLocalizations.dontHaveAccount,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RegisterScreen.routeName);
+              },
+              child: Text(appLocalizations.createAccount ,),
+            )
+          ],
         )
-      ],
     );
   }
 

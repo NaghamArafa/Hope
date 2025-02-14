@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hope/core/assets/app_assets.dart';
-import 'package:hope/ui/screens/auth/login/login.dart';
 
 class ResetpasswordScreen extends StatefulWidget {
   static const String routeName = "/resetpasswordScreen";
@@ -163,16 +162,15 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
             const SizedBox(height: 32),
             FilledButton(
               onPressed: () {
-                _validateEmptyFields(); // Validate if fields are filled
-                _validatePasswords(); // Validate password match
-                if (_emptyFieldError == null && _passwordMatchError == null) {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return PasswordResetDialog();
-                    },
-                  );
-                }
+    _validateEmptyFields(); // Validate if fields are filled
+    _validatePasswords(); // Validate password match
+    if (_emptyFieldError == null && _passwordMatchError == null) {
+    // showLoading(context);
+    // showMessage(context,
+    // appLocalizations.yourPasswordHasBeenReset,
+    // posButtonTitle: appLocalizations.done
+    // );
+    }
               },
               child: Text(appLocalizations.reset),
             ),
@@ -183,47 +181,3 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
   }
 }
 
-// Password reset dialog widget
-class PasswordResetDialog extends StatelessWidget {
-  late AppLocalizations appLocalizations;
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.lock_outline, size: 60, color: Color(0xff8E56FF)),
-            const SizedBox(height: 20),
-            Text(
-              appLocalizations.yourPasswordHasBeenReset,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.black,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            FilledButton(
-              onPressed: () {
-                Navigator.pushNamed(context, LoginScreen.routeName);
-              },
-              child: Text(appLocalizations.done),
-              style: FilledButton.styleFrom(
-                backgroundColor: const Color(0xff8E56FF),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
