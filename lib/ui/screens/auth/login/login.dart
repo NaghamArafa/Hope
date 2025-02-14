@@ -8,15 +8,26 @@ import 'package:hope/ui/shared_widgets/custom_button.dart';
 import 'package:hope/ui/shared_widgets/language_switch.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const String routeName = "/loginScreen";
 
   LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   late AppLocalizations appLocalizations;
 
   var passwordController = TextEditingController();
+
+  bool _obscurePassword = true;
+
+  String? _emptyFieldError;
+
   var emailController = TextEditingController();
+
   var formKey = GlobalKey<FormState>();
 
   // late UserProvider userProvider;
@@ -74,22 +85,37 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget buildPasswordTextField(BuildContext context) {
+    appLocalizations = AppLocalizations.of(context)!;
     return TextFormField(
+      controller: passwordController,
       style: Theme.of(context).textTheme.bodyLarge,
       cursorColor: Theme.of(context).primaryColor,
-      controller: passwordController,
+      obscureText: _obscurePassword,
       decoration: InputDecoration(
-          prefixIcon: const ImageIcon(AssetImage(AppIcons.passwordIcon)),
-          suffixIcon: const Icon(Icons.visibility_off_outlined),
-          hintText: appLocalizations.password),
-      validator: (password) {
-        if (password == null || password.isEmpty) {
-          return "Please enter a valid password";
-        } else if (password.length < 6) {
-          return "Password is too weak atleast should 6 charchters";
-        }
-        return null;
-      },
+        prefixIcon: const ImageIcon(AssetImage(AppIcons.passwordIcon)),
+        hintText: appLocalizations.password,
+        suffixIcon: IconButton(
+          icon: Icon(
+            _obscurePassword ? Icons.visibility_off : Icons.visibility,
+            color: Colors.grey,
+          ),
+          onPressed: () {
+            setState(() {
+              _obscurePassword = !_obscurePassword;
+            });
+          },
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        errorText: _emptyFieldError,
+        errorStyle: TextStyle(color: Colors.red),
+      ),
     );
   }
 
