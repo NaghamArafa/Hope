@@ -8,12 +8,15 @@ import 'package:hope/ui/screens/auth/forgetpassword/resetpassword.dart';
 import 'package:hope/ui/screens/auth/forgetpassword/verification.dart';
 import 'package:hope/ui/screens/auth/login/login.dart';
 import 'package:hope/ui/screens/auth/register/register.dart';
+import 'package:hope/ui/screens/aware/aware.dart';
 import 'package:hope/ui/screens/onBoarding_screens/on_boarding/onboarding_screen.dart';
 import 'package:hope/ui/screens/onBoarding_screens/set_up/setup_screen.dart';
 import 'package:hope/ui/screens/onBoarding_screens/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(
@@ -52,8 +55,9 @@ class MyApp extends StatelessWidget {
         ForgetpasswordScreen.routeName: (_) => ForgetpasswordScreen(),
         VerficationScreen.routeName: (_) => VerficationScreen(),
         ResetpasswordScreen.routeName: (_) => ResetpasswordScreen(),
+        AwarenessScreen.routeName: (_) => AwarenessScreen(),
       },
-      initialRoute: ResetpasswordScreen.routeName,
+      initialRoute: AwarenessScreen.routeName,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeProvider.themeMode,

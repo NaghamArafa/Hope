@@ -1,6 +1,7 @@
-// import 'package:evently_c13_online/core/theme/app_colors.dart';
-// import 'package:evently_c13_online/model/category_dm.dart';
+//
 // import 'package:flutter/material.dart';
+// import 'package:hope/core/theme/app_colors.dart';
+// import 'package:hope/model/category_dm.dart';
 //
 // class CategoriesTabs extends StatelessWidget {
 //   final Function(CategoryDM) onCategoryClick;
@@ -12,7 +13,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return Container(
-//       color: AppColors.blue,
+//       color: AppColors.purple,
 //       child: DefaultTabController(
 //         length: categories.length,
 //         child: TabBar(
@@ -29,7 +30,7 @@
 //             // unselectedLabelColor: AppColors.white,
 //             // labelColor: AppColors.purple,
 //             unselectedLabelStyle: TextStyle(color: AppColors.white),
-//             labelStyle: TextStyle(color: AppColors.blue),
+//             labelStyle: TextStyle(color: AppColors.purple),
 //             tabs: categories.map(categoryToTab).toList()),
 //       ),
 //     );

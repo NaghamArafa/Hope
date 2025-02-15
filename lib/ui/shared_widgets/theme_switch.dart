@@ -4,43 +4,45 @@ import 'package:hope/core/providers/theme_provider.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:provider/provider.dart';
 
-// ignore: must_be_immutable
 class ThemeSwitch extends StatelessWidget {
-  ThemeSwitch({super.key});
-
-  late ThemeProvider themeProvider;
+  const ThemeSwitch({super.key});
 
   @override
   Widget build(BuildContext context) {
-    themeProvider = Provider.of<ThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return AnimatedToggleSwitch<ThemeMode>.rolling(
       current: themeProvider.themeMode,
-      values: const [ThemeMode.dark, ThemeMode.light],
-      style: ToggleStyle(
+        values: const [ThemeMode.dark, ThemeMode.light, ThemeMode.system],
+        style: ToggleStyle(
         backgroundColor: Colors.transparent,
         indicatorColor: Theme.of(context).primaryColor,
         borderColor: Theme.of(context).primaryColor,
       ),
-      onChanged: (value) {
-        themeProvider.themeMode = value;
-      },
+        onChanged: (ThemeMode newTheme) {
+          themeProvider.changeTheme(newTheme);
+        },
       iconBuilder: (value, foreground) {
-        if (value == ThemeMode.dark) {
-          return Icon(
-            EvaIcons.moon,
-            color: !themeProvider.isDark()
-                ? Theme.of(context).primaryColor
-                : Theme.of(context).scaffoldBackgroundColor,
-          );
-        } else {
-          return Icon(
-            EvaIcons.sun,
-            color: themeProvider.isDark()
-                ? Theme.of(context).primaryColor
-                : Theme.of(context).scaffoldBackgroundColor,
-          );
-        }
-      },
-    );
+          if (value == ThemeMode.dark) {
+            return Icon(
+              EvaIcons.moon,
+              color: !themeProvider.isDark()
+                  ? Theme.of(context).primaryColor
+                  : Theme.of(context).scaffoldBackgroundColor,
+            );
+          } else if (value == ThemeMode.light) {
+            return Icon(
+              EvaIcons.sun,
+              color: themeProvider.isDark()
+                  ? Theme.of(context).primaryColor
+                  : Theme.of(context).scaffoldBackgroundColor,
+            );
+          } else {
+            return Visibility(
+              visible: false,
+              child: Container(),
+            );
+          }
+        });
   }
 }
